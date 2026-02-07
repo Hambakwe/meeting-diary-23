@@ -27,6 +27,24 @@ function convertRecords($records) {
 $method = $_SERVER['REQUEST_METHOD'];
 $pdo = getDbConnection();
 
+// Auto-complete meetings where to_date has passed and status is still 'scheduled'
+function autoCompletePastMeetings($pdo) {
+    $today = date('Y-m-d');
+    $stmt = $pdo->prepare("
+        UPDATE meetings
+        SET status = 'completed'
+        WHERE status = 'scheduled'
+        AND to_date < ?
+    ");
+    $stmt->execute([$today]);
+    return $stmt->rowCount();
+}
+
+// Run auto-complete on every GET request
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    autoCompletePastMeetings($pdo);
+}
+
 // Get ID from query string if present
 $id = $_GET['id'] ?? null;
 $status = $_GET['status'] ?? null;
