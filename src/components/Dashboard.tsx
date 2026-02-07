@@ -82,13 +82,15 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
     const cancelledMeetings = meetings.filter((m) => m.status === "cancelled");
 
     const upcomingMeetings = meetings.filter((m) => {
-      const meetingDate = new Date(m.fromDate);
-      return meetingDate >= today && m.status === "scheduled";
+      // Upcoming: toDate is today or later (meeting hasn't ended yet) and status is scheduled
+      const toDate = new Date(m.toDate);
+      return toDate >= today && m.status === "scheduled";
     });
 
     const pastMeetings = meetings.filter((m) => {
-      const meetingDate = new Date(m.fromDate);
-      return meetingDate < today;
+      // Past: toDate is before today (meeting has ended)
+      const toDate = new Date(m.toDate);
+      return toDate < today;
     });
 
     // Meetings this month

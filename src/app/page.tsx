@@ -307,12 +307,15 @@ function HomeContent() {
       // Filter by view
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      const meetingDate = new Date(meeting.fromDate);
+      const fromDate = new Date(meeting.fromDate);
+      const toDate = new Date(meeting.toDate);
 
       if (meetingView === 'future') {
-        return meetingDate >= today;
+        // Future: toDate is today or later (meeting hasn't ended yet)
+        return toDate >= today;
       } else if (meetingView === 'past') {
-        return meetingDate < today;
+        // Past: toDate is before today (meeting has ended)
+        return toDate < today;
       }
       return true; // 'all'
     })
