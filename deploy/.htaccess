@@ -1,0 +1,30 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Don't rewrite requests for files/directories that exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Don't rewrite API requests
+RewriteCond %{REQUEST_URI} !^/api/
+
+# Route all other requests to index.html (for SPA)
+RewriteRule ^(.*)$ /index.html [L]
+
+# Enable CORS if needed
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

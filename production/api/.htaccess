@@ -1,0 +1,43 @@
+# Meeting Diary API - Apache Configuration
+# Enable URL rewriting for cleaner API routes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /api/
+
+    # Handle OPTIONS requests for CORS
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ index.php [QSA,L]
+
+    # Don't rewrite requests for existing files
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Rewrite API routes
+    RewriteRule ^persons/?$ persons.php [QSA,L]
+    RewriteRule ^persons/(.+)$ persons.php?id=$1 [QSA,L]
+    RewriteRule ^hotels/?$ hotels.php [QSA,L]
+    RewriteRule ^hotels/(.+)$ hotels.php?id=$1 [QSA,L]
+    RewriteRule ^meetings/?$ meetings.php [QSA,L]
+    RewriteRule ^meetings/(.+)$ meetings.php?id=$1 [QSA,L]
+    RewriteRule ^users/?$ users.php [QSA,L]
+    RewriteRule ^users/(.+)$ users.php?id=$1 [QSA,L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "config\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
