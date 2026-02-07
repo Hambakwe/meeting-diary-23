@@ -69,8 +69,8 @@ export function MeetingCard({
   onDelete,
 }: MeetingCardProps) {
   const statusConfig = {
-    scheduled: { variant: "secondary" as const, color: "bg-amber-500", text: "text-amber-700", bg: "bg-amber-50" },
-    completed: { variant: "success" as const, color: "bg-emerald-500", text: "text-emerald-700", bg: "bg-emerald-50" },
+    scheduled: { variant: "secondary" as const, color: "bg-emerald-500", text: "text-emerald-700", bg: "bg-emerald-50" },
+    completed: { variant: "success" as const, color: "bg-amber-500", text: "text-amber-700", bg: "bg-amber-50" },
     cancelled: { variant: "destructive" as const, color: "bg-red-500", text: "text-red-700", bg: "bg-red-50" },
   };
 

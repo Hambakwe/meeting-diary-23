@@ -62,8 +62,8 @@ const CHART_COLORS = {
 };
 
 const STATUS_COLORS = {
-  scheduled: "#f59e0b",
-  completed: "#10b981",
+  scheduled: "#10b981",
+  completed: "#f59e0b",
   cancelled: "#ef4444",
 };
 
@@ -328,7 +328,7 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
         </Card>
 
         {/* Upcoming */}
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-amber-500 to-orange-500 text-white overflow-hidden relative">
+        <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-500 to-green-600 text-white overflow-hidden relative">
           <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center justify-between">
@@ -342,7 +342,7 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
         </Card>
 
         {/* Completed */}
-        <Card className="border-0 shadow-lg bg-gradient-to-br from-emerald-500 to-green-600 text-white overflow-hidden relative">
+        <Card className="border-0 shadow-lg bg-gradient-to-br from-amber-500 to-orange-500 text-white overflow-hidden relative">
           <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-8 translate-x-8" />
           <CardContent className="pt-5 pb-4">
             <div className="flex items-center justify-between">
@@ -664,8 +664,8 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
                   return (
                     <div key={meeting.id} className="flex items-center gap-2">
                       <div className={`w-1.5 h-1.5 rounded-full ${
-                        meeting.status === "completed" ? "bg-emerald-500" :
-                        meeting.status === "cancelled" ? "bg-red-500" : "bg-amber-500"
+                        meeting.status === "completed" ? "bg-amber-500" :
+                        meeting.status === "cancelled" ? "bg-red-500" : "bg-emerald-500"
                       }`} />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm text-zinc-700 truncate">{meeting.title}</p>
@@ -739,7 +739,7 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
         <Card className="border-0 shadow-lg">
           <CardHeader className="pb-2">
             <CardTitle className="text-base text-zinc-800 flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-amber-500" />
+              <Calendar className="h-4 w-4 text-emerald-500" />
               Upcoming Meetings
             </CardTitle>
             <CardDescription className="text-xs">Your next scheduled meetings</CardDescription>
@@ -757,7 +757,7 @@ export function Dashboard({ meetings, persons, hotels }: DashboardProps) {
                       className="flex items-center gap-2 p-2 rounded-lg bg-gradient-to-r from-zinc-50 to-white border border-zinc-100"
                     >
                       <div className="flex-shrink-0">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex flex-col items-center justify-center text-white">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-green-500 flex flex-col items-center justify-center text-white">
                           <span className="text-[8px] font-medium leading-none">
                             {format(parseISO(meeting.fromDate), "MMM")}
                           </span>
