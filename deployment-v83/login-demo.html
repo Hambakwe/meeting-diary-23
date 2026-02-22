@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Embed Demo - Gantt Project Manager</title>
+    <style>
+        :root {
+            --primary: #14b8a6;
+            --bg: #fafaf9;
+            --bg-card: #ffffff;
+            --text: #1c1917;
+            --text-muted: #78716c;
+            --border: #e7e5e4;
+            --code-bg: #1c1917;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 25px 0 15px;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        code {
+            background: #e7e5e4;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: #fafaf9;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .comment { color: #6b7280; }
+        .string { color: #34d399; }
+        .keyword { color: #f472b6; }
+        .tag { color: #60a5fa; }
+        .attr { color: #fbbf24; }
+
+        .demo-box {
+            background: #f5f5f4;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .demo-box p {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .btn-example {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 14px rgba(20, 184, 166, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-example:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(20, 184, 166, 0.4);
+        }
+
+        .btn-example svg {
+            margin-right: 8px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 5px;
+        }
+
+        .btn-link:hover {
+            background: rgba(20, 184, 166, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f5f5f4;
+            font-weight: 600;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        .warning strong {
+            color: #92400e;
+        }
+
+        .success {
+            background: #dcfce7;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Login Embed Integration</h1>
+        <p>Add a popup login link to your website that connects to Gantt Project Manager</p>
+    </header>
+
+    <div class="container">
+        <!-- Quick Start -->
+        <section>
+            <h2>Quick Start</h2>
+            <p>Add these two lines to your website to create a login button:</p>
+
+            <pre><code><span class="comment">&lt;!-- Add where you want the button to appear --&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="string">"gantt-login-button"</span><span class="tag">&gt;&lt;/div&gt;</span>
+
+<span class="comment">&lt;!-- Add before closing &lt;/body&gt; tag --&gt;</span>
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="string">"https://YOUR-DOMAIN.com/login-embed.js"</span>
+        <span class="attr">data-target</span>=<span class="string">"gantt-login-button"</span><span class="tag">&gt;&lt;/script&gt;</span></code></pre>
+
+            <div class="demo-box">
+                <p>Result:</p>
+                <div id="gantt-login-button"></div>
+            </div>
+        </section>
+
+        <!-- Direct Link -->
+        <section>
+            <h2>Direct Link Method</h2>
+            <p>Use a simple link or button that opens the login popup:</p>
+
+            <h3>Option 1: Popup Link</h3>
+            <pre><code><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onclick</span>=<span class="string">"GanttLogin.open(); return false;"</span><span class="tag">&gt;</span>
+    Login to Project Manager
+<span class="tag">&lt;/a&gt;</span>
+
+<span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="string">"https://YOUR-DOMAIN.com/login-embed.js"</span><span class="tag">&gt;&lt;/script&gt;</span></code></pre>
+
+            <div class="demo-box">
+                <a href="#" onclick="GanttLogin.open(); return false;" class="btn-link">Login to Project Manager</a>
+            </div>
+
+            <h3>Option 2: Direct URL (no JavaScript required)</h3>
+            <pre><code><span class="comment">&lt;!-- Opens in new tab --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"https://YOUR-DOMAIN.com/login.php"</span> <span class="attr">target</span>=<span class="string">"_blank"</span><span class="tag">&gt;</span>
+    Login to Project Manager
+<span class="tag">&lt;/a&gt;</span>
+
+<span class="comment">&lt;!-- Opens as popup --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="string">"https://YOUR-DOMAIN.com/login.php?popup=1"</span>
+   <span class="attr">onclick</span>=<span class="string">"window.open(this.href, 'GanttLogin', 'width=450,height=650'); return false;"</span><span class="tag">&gt;</span>
+    Login (Popup)
+<span class="tag">&lt;/a&gt;</span></code></pre>
+
+            <div class="demo-box">
+                <a href="login.php" target="_blank" class="btn-link">Login (New Tab)</a>
+                <a href="login.php?popup=1" onclick="window.open(this.href, 'GanttLogin', 'width=450,height=650'); return false;" class="btn-link">Login (Popup)</a>
+            </div>
+        </section>
+
+        <!-- Advanced Configuration -->
+        <section>
+            <h2>Advanced Configuration</h2>
+            <p>Customize the login button and behavior with JavaScript:</p>
+
+            <pre><code><span class="tag">&lt;script</span> <span class="attr">src</span>=<span class="string">"https://YOUR-DOMAIN.com/login-embed.js"</span><span class="tag">&gt;&lt;/script&gt;</span>
+<span class="tag">&lt;script&gt;</span>
+    <span class="comment">// Initialize with custom options</span>
+    GanttLogin.init({
+        <span class="attr">baseUrl</span>: <span class="string">'https://YOUR-DOMAIN.com'</span>,
+        <span class="attr">theme</span>: <span class="string">'dark'</span>,  <span class="comment">// 'dark' or 'light'</span>
+        <span class="attr">buttonText</span>: <span class="string">'Access Projects'</span>,
+        <span class="attr">buttonStyle</span>: <span class="string">'default'</span>,  <span class="comment">// 'default' or 'minimal'</span>
+
+        <span class="comment">// Callback when login succeeds</span>
+        <span class="attr">onSuccess</span>: <span class="keyword">function</span>(user) {
+            console.log(<span class="string">'Logged in as:'</span>, user.full_name);
+            console.log(<span class="string">'Role:'</span>, user.role);
+
+            <span class="comment">// Redirect to your desired page</span>
+            window.location.href = <span class="string">'https://YOUR-DOMAIN.com/'</span>;
+        },
+
+        <span class="comment">// Callback when login fails</span>
+        <span class="attr">onError</span>: <span class="keyword">function</span>(error) {
+            alert(<span class="string">'Login failed: '</span> + error);
+        },
+
+        <span class="comment">// Callback when popup is closed</span>
+        <span class="attr">onClose</span>: <span class="keyword">function</span>() {
+            console.log(<span class="string">'Login popup closed'</span>);
+        }
+    });
+
+    <span class="comment">// Then render button</span>
+    GanttLogin.renderButton(<span class="string">'my-button-container'</span>);
+<span class="tag">&lt;/script&gt;</span></code></pre>
+        </section>
+
+        <!-- API Reference -->
+        <section>
+            <h2>API Reference</h2>
+
+            <h3>GanttLogin.open(options)</h3>
+            <p>Opens the login popup window.</p>
+            <table>
+                <tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                <tr><td><code>theme</code></td><td>string</td><td>'dark'</td><td>Color theme: 'dark' or 'light'</td></tr>
+                <tr><td><code>width</code></td><td>number</td><td>450</td><td>Popup window width in pixels</td></tr>
+                <tr><td><code>height</code></td><td>number</td><td>650</td><td>Popup window height in pixels</td></tr>
+                <tr><td><code>returnUrl</code></td><td>string</td><td>'/'</td><td>URL to redirect after login</td></tr>
+            </table>
+
+            <h3>GanttLogin.renderButton(targetId, options)</h3>
+            <p>Renders a styled login button in the specified element.</p>
+            <table>
+                <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
+                <tr><td><code>targetId</code></td><td>string</td><td>ID of the container element</td></tr>
+                <tr><td><code>options.buttonText</code></td><td>string</td><td>Button label text</td></tr>
+                <tr><td><code>options.buttonStyle</code></td><td>string</td><td>'default' or 'minimal'</td></tr>
+            </table>
+
+            <h3>GanttLogin.checkSession(callback)</h3>
+            <p>Check if user is already logged in.</p>
+            <pre><code>GanttLogin.checkSession(<span class="keyword">function</span>(isLoggedIn, user) {
+    <span class="keyword">if</span> (isLoggedIn) {
+        console.log(<span class="string">'Welcome back,'</span>, user.full_name);
+    } <span class="keyword">else</span> {
+        console.log(<span class="string">'Not logged in'</span>);
+    }
+});</code></pre>
+
+            <h3>GanttLogin.logout(callback)</h3>
+            <p>Logout the current user.</p>
+            <pre><code>GanttLogin.logout(<span class="keyword">function</span>() {
+    console.log(<span class="string">'Logged out successfully'</span>);
+    window.location.reload();
+});</code></pre>
+        </section>
+
+        <!-- URL Parameters -->
+        <section>
+            <h2>Login Page URL Parameters</h2>
+            <p>When linking directly to <code>login.php</code>, you can use these query parameters:</p>
+
+            <table>
+                <tr><th>Parameter</th><th>Value</th><th>Description</th></tr>
+                <tr><td><code>popup</code></td><td>1 or 0</td><td>Set to 1 when opening as popup (enables parent window communication)</td></tr>
+                <tr><td><code>theme</code></td><td>dark or light</td><td>Color theme for the login page</td></tr>
+                <tr><td><code>return</code></td><td>URL</td><td>URL to redirect to after successful login</td></tr>
+            </table>
+
+            <h3>Example URLs</h3>
+            <pre><code><span class="comment">// Dark theme, popup mode</span>
+https://YOUR-DOMAIN.com/login.php?popup=1&theme=dark
+
+<span class="comment">// Light theme, redirect to specific page</span>
+https://YOUR-DOMAIN.com/login.php?theme=light&return=/projects/
+
+<span class="comment">// Full example</span>
+https://YOUR-DOMAIN.com/login.php?popup=1&theme=dark&return=https://YOUR-DOMAIN.com/</code></pre>
+        </section>
+
+        <!-- Demo Users -->
+        <section>
+            <h2>Demo User Credentials</h2>
+            <p>Use these credentials to test the login functionality:</p>
+
+            <table>
+                <tr><th>Role</th><th>Email</th><th>Password</th><th>Access</th></tr>
+                <tr>
+                    <td><strong>Admin</strong></td>
+                    <td><code>admin@oasiscapitalfinance.com</code></td>
+                    <td><code>admin123</code></td>
+                    <td>Full access to all features</td>
+                </tr>
+                <tr>
+                    <td><strong>Manager</strong></td>
+                    <td><code>sarah@oasiscapitalfinance.com</code></td>
+                    <td><code>manager123</code></td>
+                    <td>Create/manage projects, assign clients</td>
+                </tr>
+                <tr>
+                    <td><strong>Client</strong></td>
+                    <td><code>contact@acmecorp.com</code></td>
+                    <td><code>client123</code></td>
+                    <td>View allocated projects only</td>
+                </tr>
+            </table>
+
+            <div class="warning">
+                <strong>Note:</strong> These demo credentials are for testing only. In production, ensure you change all default passwords and use strong, unique credentials.
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section>
+            <h2>Troubleshooting</h2>
+
+            <h3>Popup Blocked</h3>
+            <p>If the popup is blocked by the browser, the script will automatically redirect to the login page in the same tab. Users can allow popups for your domain in their browser settings.</p>
+
+            <h3>CORS Issues</h3>
+            <p>If you're embedding the login from a different domain, ensure the API has proper CORS headers configured. The <code>config.php</code> file should include your domain in the allowed origins.</p>
+
+            <h3>Session Not Persisting</h3>
+            <p>Make sure cookies are enabled and the <code>credentials: 'include'</code> option is set in API requests. Cross-domain cookies may require additional configuration.</p>
+        </section>
+
+        <!-- Live Test -->
+        <section>
+            <h2>Live Test</h2>
+            <p>Try the login popup right here:</p>
+
+            <div class="demo-box">
+                <button type="button" class="btn-example" onclick="GanttLogin.open();">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                    Open Login Popup
+                </button>
+            </div>
+
+            <div class="success" id="login-status" style="display: none;">
+                <strong>Login Status:</strong> <span id="status-text"></span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Oasis Capital Finance. Gantt Project Manager v77</p>
+        <p style="margin-top: 10px;">
+            <a href="/">Back to Dashboard</a> |
+            <a href="login.php">Login Page</a> |
+            <a href="api/version_verify.php">Verify Deployment</a>
+        </p>
+    </footer>
+
+    <!-- Include the embed script -->
+    <script src="login-embed.js" data-target="gantt-login-button"></script>
+
+    <script>
+        // Custom callback for demo
+        GanttLogin.init({
+            onSuccess: function(user) {
+                var status = document.getElementById('login-status');
+                var text = document.getElementById('status-text');
+
+                status.style.display = 'block';
+                text.textContent = 'Logged in as ' + user.full_name + ' (' + user.role + '). Redirecting...';
+
+                setTimeout(function() {
+                    window.location.href = '/';
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
